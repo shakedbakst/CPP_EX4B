@@ -18,6 +18,6 @@ public:
     double getY() const;
     double distance(const Point &pt_other) const;
     Point moveTowards(const Point src, const Point dest, double dist);
-    std::string print() const;
+    string print();
 };
 #endif  

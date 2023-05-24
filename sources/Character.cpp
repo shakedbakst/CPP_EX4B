@@ -1,23 +1,24 @@
 #include "Character.hpp"
+#include "Point.hpp"
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
-
-//Character::Character(){}
-
-Character::Character(const string& name, const Point& location, int hit):name(name), location(location), hit(hit){
+Character :: Character (){
 }
 
-Character::Character(const string& name, const Point& location):name(name), location(location){
+Character::Character(string name, Point& location, int hit):name(name), location(location), hit(hit){
+}
+
+Character::Character(string name, Point& location):name(name), location(location){
 }
 
 string Character::getName(){
     return this -> name;
 }
 
-const Point& Character::getLocation() const{
+Point Character::getLocation(){
     return this -> location;
 }
 
@@ -29,11 +30,11 @@ void Character::setLocation(Point location){
     this -> location = location;
 }
 
-bool Character::isAlive() const{
+bool Character::isAlive(){
     return hit > 0;
 }
 
-double Character::distance(Character* other){
+double Character::distance(Character* other)const{
     return this->location.distance(other->getLocation());
 }
 
@@ -45,23 +46,18 @@ void Character::hits(int num){
 }
 
 string Character::print() {
-    string description = "Name: ";
-    description += this->name;
-
+    stringstream ss;
+    ss << "Name: " << name;
     if (hit <= 0) {
-        description += " (" + this->name + ")";
+        ss << " (Dead)";
     } else {
-        description += ", Hit point: " + to_string(hit);
+        ss << ", Hit Points: " << hit;
     }
-
-    description += ", Location: " + this->location.print();
-    description += ", Lives left: " + to_string(this->hit);
-
-    return description;
+    ss << ", Location: " << location.print();
+    return ss.str();
 }
 
 
-//functionsss
 
 bool Character::TeamMember(){
     return Tmember; 
@@ -71,10 +67,18 @@ void Character::setTeamMember(){
     Tmember = true;
 }
 
-bool Character::TeamLeader(){
+void Character :: setType(string type){
+    this ->type = type;
+}
+
+string Character :: getType(){
+    return this-> type;
+}
+
+/*bool Character::TeamLeader(){
     return Tleader; 
 }
 
 void Character::setTeamLeader(){
     Tleader = true;
-}
+}*/

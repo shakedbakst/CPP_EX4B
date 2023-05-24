@@ -20,27 +20,46 @@ namespace ariel{};
 
 class Team {
 private:
-    Character* lead;
+    Character* leader;
     vector<Character*> players;
 
 public:
-    Team();
-    Team(Character* lead);
-    virtual ~Team();
-    vector<Character*>& getFighters();
-    Character* getLeader();
-    void setLeader(Character *leader);
-    void addMember(Character* newMem);
-    void add(Character* fighter);
-    Character* choose_enemy(Team* enemyTeam);
-    void attack(Team* enemy);
-    int stillAlive()const;
-    void print();
+     void addToMembers(Character* newChar);
 
-    Team (Team&) = delete; 
-    Team (Team&&) noexcept = delete;
-    Team& operator = (const Team&) = delete; 
-    Team& operator = (Team&&) noexcept = delete;
+        void setLeader(Character *leader);
+
+        Character* getLeader();
+
+        std::vector <Character*> getFighters() const{
+            return players;
+        }
+
+        Character* findClosestAliveFighter(const Team &team, const Character *leader) const;
+
+
+        Team (Team&) = delete; 
+        Team (Team&&) noexcept = delete;
+        Team& operator = (const Team&) = delete; 
+        Team& operator = (Team&&) noexcept = delete;
+
+        Team(Character* leader);
+
+        Team();
+        
+        virtual ~Team(){
+        for(size_t i=0 ; i<players.size() ;i++){
+            delete players.at(i);
+            }
+        }
+    
+        void add(Character* newChr);
+
+        void attack(Team* other);
+
+        int stillAlive();
+
+        void print();
+    
 };
 
 #endif

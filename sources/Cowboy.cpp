@@ -34,9 +34,9 @@ bool Cowboy::hasBullets(){
 }
 
 void Cowboy::reload(){
-        if(this->isAlive()){
+    if(this->isAlive()){
         this->bullets = 6;
-        }else{
+    }else{
             throw std::runtime_error("The cowboy is dead");
-        }
     }
+}

@@ -1,7 +1,6 @@
 #include "Point.hpp"
 #include <iostream>
 #include <cmath>
-#include <sstream>
 
 using namespace std;
 
@@ -44,8 +43,7 @@ Point Point::moveTowards(const Point src, const Point dest, double dist){
     return Point(X_newest, Y_newest);
 }
 
-std::string Point::print() const {
-    std::ostringstream oss;
-    oss << "(" << pt_x << ", " << pt_y << ")";
-    return oss.str();
+string Point :: print(){
+    string s = "(" + to_string(this ->pt_x) + " , " + to_string(this ->pt_y) + " )";
+    return s;    
 }

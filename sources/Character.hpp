@@ -3,8 +3,9 @@
 
 #include "Point.hpp"
 #include <iostream>
-//#include <cmath>
-//#include <string>
+#include <string>
+#include <sstream>
+
 
 using namespace std;
 namespace ariel{};
@@ -14,31 +15,34 @@ private:
     string name;
     Point location;
     int hit;
-    bool Tmember=false;
-    bool Tleader=false;
-    //int priority_enemy = 0;
+    bool Tmember;
+    string type;
+    //bool Tleader=false;
 
 public:
-    //Character();
-    Character(const string& name, const Point& location, int hit);
-    Character(const string& name, const Point& location);
+    Character ();
+    Character(string name, Point& location, int hit);
+    Character(string name, Point& location);
     virtual ~Character() = default;
-    std::string getName();
-    const Point& getLocation() const;
+    string getName();
+    Point getLocation();
     int getHits() const;
     void setLocation(Point location);
-    void setHits(int num);
-    bool isAlive() const;
-    double distance(Character* other);
+    bool isAlive();
+    double distance(Character* other)const;
     void hits(int num);
-    //virtual string print() = 0;
     string print();
     
 
     bool TeamMember();
     void setTeamMember();
-    bool TeamLeader();
-    void setTeamLeader();
+
+    void setType(string type);
+    string getType();
+
+
+    //bool TeamLeader();
+    //void setTeamLeader();
 
 
 
@@ -46,7 +50,6 @@ public:
     Character(Character&& ) noexcept; // Move Constructor.
     Character& operator = (const Character&); // Copy assignment operator.
     Character& operator = (Character&&) noexcept; // Move assignment operator.
-
 
 };
 #endif 

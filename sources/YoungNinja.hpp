@@ -9,6 +9,6 @@ namespace ariel{};
 
 class YoungNinja : public Ninja {
 public:
-    YoungNinja(std::string name, Point location);
+    YoungNinja(string name, Point location);
 };
 #endif  

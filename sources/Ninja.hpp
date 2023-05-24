@@ -12,7 +12,7 @@ private:
     int speed;
 
 public:
-    Ninja(std::string name, Point location, int hit, int speed);
+    Ninja(string name, Point location, int hit, int speed);
     int getSpeed() const;
     void move(Character* target);
     void slash(Character* target);
