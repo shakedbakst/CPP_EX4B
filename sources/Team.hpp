@@ -19,12 +19,12 @@ using namespace std;
 namespace ariel{};
 
 class Team {
-private:
-    Character* leader;
-    vector<Character*> players;
+    private:
+        Character* leader;
+        vector<Character*> players;
 
-public:
-     void addToMembers(Character* newChar);
+    public:
+        //void addToMembers(Character* newChar);
 
         void setLeader(Character *leader);
 

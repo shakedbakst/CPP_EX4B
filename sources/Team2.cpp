@@ -9,7 +9,7 @@ Team2::Team2(Character* leader) : Team(leader) {
         throw std::runtime_error(name + " is already in another team");
     }
     this->setLeader(leader);
-    this->addToMembers(leader);
+    //this->addToMembers(leader);
     leader->setTeamMember();
 }
 
