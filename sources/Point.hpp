@@ -17,7 +17,7 @@ public:
     double getX() const;
     double getY() const;
     double distance(const Point &pt_other) const;
-    Point moveTowards(const Point src, const Point dest, double dist);
+    static Point moveTowards(Point src, Point dest, double dist);
     string print();
 };
 #endif  

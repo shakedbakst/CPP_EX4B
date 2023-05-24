@@ -23,8 +23,7 @@ double Point::distance(const Point &pt_other) const {
     return std::hypot(pt_other.getX() - getX(), pt_other.getY() - getY());
 }
 
-
-Point Point::moveTowards(const Point src, const Point dest, double dist){
+Point Point::moveTowards(Point src, Point dest, double dist){
     if(dist < 0){
         throw std::invalid_argument("Error! distance must be positive!");
     }
