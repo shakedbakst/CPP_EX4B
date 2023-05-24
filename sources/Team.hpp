@@ -26,7 +26,7 @@ class Team {
         Character* getLeader();
         Character* findClosestFighter(const Team &team, const Character *leader) const;
         void attack(Team* other);
-        int stillAlive();
+        int stillAlive() const;
         void print();
         void addToMembers(Character* newChar);
 

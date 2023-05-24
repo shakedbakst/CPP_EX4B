@@ -17,13 +17,9 @@ class Team2 : public Team{
 
     public:
         Team2(Character* leader);
-        
         Team2();
-
         void print();
-    
-        Character* findClosestAliveFighter(const Team &team, const Character *leader) const;
-
+        Character* findClosestFighter(const Team &team, const Character *leader) const;
         void attack(Team* other);
 
 

@@ -10,11 +10,11 @@ Team::Team() {}
 Team::Team(Character* leader) {
     if (leader->TeamMember()) {
         std::string name = leader->getName();
-        throw std::runtime_error(name + " is already a team member");
+        throw runtime_error(name + " is already a team member");
     }
 
     this->leader = leader;
-    this->players = {leader};
+    this->players.push_back(leader);
     leader->setTeamMember();
 }
 
@@ -24,23 +24,17 @@ void Team::add(Character* warrior) {
     constexpr int MAX_CAPACITY = 10;
 
     if (players.size() == MAX_CAPACITY) {
-        throw std::runtime_error("Error- Cannot add another warrior");
-    }
-
-    if (warrior == nullptr) {
-        throw std::invalid_argument("Error- Null warrior provided");
+        throw runtime_error("Error- Cannot add another warrior");
     }
 
     if (warrior->TeamMember()) {
-        throw std::runtime_error("Error- This warrior is already a team member.");
+        throw runtime_error("Error- This warrior is already a team member.");
     }
 
-    if (!warrior->isAlive()) {
-        return;  
-    }
-
+   
     players.push_back(warrior);
     warrior->setTeamMember();
+    
 }
 
 
@@ -128,10 +122,10 @@ void Team::attack(Team* other) {
 
 
 
-int Team::stillAlive() {
+int Team::stillAlive() const{
     int count = 0;
     for (Character* member : players) {
-        if (member->isAlive()) {
+        if (member!=nullptr && member->isAlive()) {
             count++;
         }
     }
