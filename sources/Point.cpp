@@ -1,6 +1,7 @@
 #include "Point.hpp"
 #include <iostream>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ double Point::distance(const Point &pt_other) const {
 
 Point Point::moveTowards(const Point src, const Point dest, double dist){
     if(dist < 0){
-        throw std::invalid_argument("Error! distance must be positive!")
+        throw std::invalid_argument("Error! distance must be positive!");
     }
     double X_new = dest.getX() - src.getX();
     double Y_new = dest.getY() - src.getY();

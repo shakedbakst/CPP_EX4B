@@ -25,8 +25,8 @@ void Cowboy::shoot(Character* target) {
         throw std::runtime_error("Can't attack dead characters");
     }
 
-    target->hit(10);
-    decreaseBullets();
+    target->hits(10);
+    this->bullets-=1;
 }
 
 bool Cowboy::hasBullets(){

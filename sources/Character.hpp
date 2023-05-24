@@ -11,22 +11,42 @@ namespace ariel{};
 
 class Character {
 private:
-    std::string name;
+    string name;
     Point location;
     int hit;
+    bool Tmember=false;
+    bool Tleader=false;
+    //int priority_enemy = 0;
 
 public:
-    Character();
-    Character(std::string name, Point location, int hit);
-    Character(std::string name, Point location);
+    //Character();
+    Character(const string& name, const Point& location, int hit);
+    Character(const string& name, const Point& location);
+    virtual ~Character() = default;
     std::string getName();
-    Point getLocation();
+    const Point& getLocation() const;
     int getHits() const;
-    void setLocation(Point& location);
+    void setLocation(Point location);
     void setHits(int num);
-    bool isAlive();
-    double distance(Character& other);
+    bool isAlive() const;
+    double distance(Character* other);
     void hits(int num);
-    std::string print();
+    //virtual string print() = 0;
+    string print();
+    
+
+    bool TeamMember();
+    void setTeamMember();
+    bool TeamLeader();
+    void setTeamLeader();
+
+
+
+    Character (Character&); // Copy Constructor.
+    Character(Character&& ) noexcept; // Move Constructor.
+    Character& operator = (const Character&); // Copy assignment operator.
+    Character& operator = (Character&&) noexcept; // Move assignment operator.
+
+
 };
 #endif 

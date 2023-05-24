@@ -43,7 +43,7 @@ void Ninja::slash(Character* target) {
 
     if (distance <= 1.0) {
         if (target->isAlive()) {
-            target->hit(40);
+            target->hits(40);
         }
         else {
             throw std::runtime_error("Can't attack dead characters");

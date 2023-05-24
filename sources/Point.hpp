@@ -16,7 +16,7 @@ public:
     Point(double pt_x, double pt_y);
     double getX() const;
     double getY() const;
-    double distance(Point pt_other);
+    double distance(const Point &pt_other) const;
     Point moveTowards(const Point src, const Point dest, double dist);
     std::string print() const;
 };
