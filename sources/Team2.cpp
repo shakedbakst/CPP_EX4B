@@ -1,5 +1,4 @@
 #include "Team2.hpp"
-#include "Team.hpp"
 #include <iostream>
 #include <limits>
 
@@ -16,7 +15,7 @@ Team2::Team2(Character* leader) {
 
 Team2::Team2() : Team() {}
 
-Character* Team::findClosestFighter(const Team& team, const Character* leader) const {
+Character* Team2::findClosestFighter(const Team& team, const Character* leader) const {
     double minDistance = std::numeric_limits<double>::max();
     Character* closestAlive = nullptr;
     for (Character* member : team.getFighters()) {
@@ -31,7 +30,7 @@ Character* Team::findClosestFighter(const Team& team, const Character* leader) c
     return closestAlive;
 }
 
-void Team::attack(Team* other) {
+void  Team2 :: attack(Team* other){
     if (other == nullptr) {
         throw std::invalid_argument("Error!");
     }
@@ -75,7 +74,7 @@ void Team::attack(Team* other) {
         }
 
         if (!toAttack->isAlive()) {
-            toAttack = findClosestFighter(*other, leader);
+            toAttack = findClosestFighter(*other, getLeader());
         }
 
         if (fighter->getType() == "Ninja" && fighter->isAlive()) {

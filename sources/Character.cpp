@@ -7,7 +7,7 @@ using namespace std;
 Character :: Character (){
 }
 
-Character::Character(string name, Point& location, int hitPoints):name(name), location(location), hitPoints(hitPoints){
+Character::Character(string name, Point& location, int hitPoints):name(name), location(location), hitPoints(hitPoints), Tmember(false){
 }
 
 Character::Character(string name, Point& location):name(name), location(location){

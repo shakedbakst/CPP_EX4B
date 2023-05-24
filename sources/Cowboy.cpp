@@ -9,8 +9,8 @@ int Cowboy::getBullets(){
 }
 
 void Cowboy::shoot(Character* target) {
-    if (target == nullptr) {
-        throw std::invalid_argument("Invalid target");
+    if (this == target) {
+        throw std::runtime_error("Invalid target");
     }
     if (!isAlive()) {
         throw std::runtime_error("ERROR- the cowboy is dead");
