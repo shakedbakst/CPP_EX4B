@@ -15,7 +15,7 @@ public:
     Cowboy(string name, Point location);
     int getBullets();
     void shoot(Character* target);
-    bool hasBullets();
+    bool hasboolets();
     void reload();
 };
 

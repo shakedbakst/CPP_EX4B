@@ -1,8 +1,6 @@
 #ifndef TEAM_HPP
 #define TEAM_HPP
 
-#include "Point.hpp"
-#include "Character.hpp"
 #include "Cowboy.hpp"
 #include "Ninja.hpp"
 #include "YoungNinja.hpp"
@@ -11,9 +9,6 @@
 
 #include <iostream>
 #include <vector>
-#include <limits>
-#include <numeric>
-
 
 using namespace std;
 namespace ariel{};
@@ -24,41 +19,33 @@ class Team {
         vector<Character*> players;
 
     public:
-        //void addToMembers(Character* newChar);
-
+        Team();
+        Team(Character* leader);
+        void add(Character* newChr);
         void setLeader(Character *leader);
-
         Character* getLeader();
-
-        std::vector <Character*> getFighters() const{
-            return players;
-        }
-
-        Character* findClosestAliveFighter(const Team &team, const Character *leader) const;
-
+        Character* findClosestFighter(const Team &team, const Character *leader) const;
+        void attack(Team* other);
+        int stillAlive();
+        void print();
+        void addToMembers(Character* newChar);
 
         Team (Team&) = delete; 
         Team (Team&&) noexcept = delete;
         Team& operator = (const Team&) = delete; 
         Team& operator = (Team&&) noexcept = delete;
-
-        Team(Character* leader);
-
-        Team();
         
+
+        std::vector <Character*> getFighters() const{
+            return players;
+        }
+
         virtual ~Team(){
         for(size_t i=0 ; i<players.size() ;i++){
             delete players.at(i);
             }
         }
-    
-        void add(Character* newChr);
-
-        void attack(Team* other);
-
-        int stillAlive();
-
-        void print();
+        
     
 };
 

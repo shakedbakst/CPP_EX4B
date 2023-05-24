@@ -14,7 +14,7 @@ private:
 public:
     Ninja(string name, Point location, int hit, int speed);
     int getSpeed() const;
-    void move(Character* target);
-    void slash(Character* target);
+    void move(Character* enemy);
+    void slash(Character* other);
 };
 #endif 

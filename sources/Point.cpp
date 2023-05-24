@@ -43,6 +43,7 @@ Point Point::moveTowards(const Point src, const Point dest, double dist){
     return Point(X_newest, Y_newest);
 }
 
+
 string Point :: print(){
     string s = "(" + to_string(this ->pt_x) + " , " + to_string(this ->pt_y) + " )";
     return s;    

@@ -14,7 +14,7 @@ class Character {
 private:
     string name;
     Point location;
-    int hit;
+    int hitPoints;
     bool Tmember;
     string type;
     //bool Tleader=false;
@@ -30,7 +30,7 @@ public:
     void setLocation(Point location);
     bool isAlive();
     double distance(Character* other)const;
-    void hits(int num);
+    void hit(int num);
     string print();
     
 

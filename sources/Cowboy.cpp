@@ -13,23 +13,20 @@ void Cowboy::shoot(Character* target) {
         throw std::invalid_argument("Invalid target");
     }
     if (!isAlive()) {
-        throw std::runtime_error("Dead cowboys can't shoot");
+        throw std::runtime_error("ERROR- the cowboy is dead");
     }
-    if (!hasBullets()) {
+    if (!hasboolets()) {
         return;
     }
-    if (target == this) {
-        throw std::runtime_error("You can't shoot yourself");
-    }
     if (!target->isAlive()) {
-        throw std::runtime_error("Can't attack dead characters");
+        throw std::runtime_error("ERROR- dead characters");
     }
 
-    target->hits(10);
+    target->hit(10);
     this->bullets-=1;
 }
 
-bool Cowboy::hasBullets(){
+bool Cowboy::hasboolets(){
     return bullets > 0;
 }
 
@@ -37,6 +34,6 @@ void Cowboy::reload(){
     if(this->isAlive()){
         this->bullets = 6;
     }else{
-            throw std::runtime_error("The cowboy is dead");
+        throw std::runtime_error("The cowboy is dead");
     }
 }

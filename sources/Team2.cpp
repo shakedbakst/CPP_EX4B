@@ -9,7 +9,7 @@ Team2::Team2(Character* leader) : Team(leader) {
         throw std::runtime_error(name + " is already in another team");
     }
     this->setLeader(leader);
-    //this->addToMembers(leader);
+    this->addToMembers(leader);
     leader->setTeamMember();
 }
 
@@ -48,7 +48,7 @@ void Team2::attack(Team* other) {
 
         if (fighter->getType() == "Cowboy" && fighter->isAlive()) {
             Cowboy* cowboy = dynamic_cast<Cowboy*>(fighter);
-            if (cowboy->hasBullets()) {
+            if (cowboy->hasboolets()) {
                 cowboy->shoot(toAttack);
             } else {
                 cowboy->reload();

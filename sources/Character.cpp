@@ -1,5 +1,4 @@
 #include "Character.hpp"
-#include "Point.hpp"
 #include <iostream>
 #include <cmath>
 
@@ -8,7 +7,7 @@ using namespace std;
 Character :: Character (){
 }
 
-Character::Character(string name, Point& location, int hit):name(name), location(location), hit(hit){
+Character::Character(string name, Point& location, int hitPoints):name(name), location(location), hitPoints(hitPoints){
 }
 
 Character::Character(string name, Point& location):name(name), location(location){
@@ -23,7 +22,7 @@ Point Character::getLocation(){
 }
 
 int Character::getHits()const{
-    return this -> hit;
+    return this -> hitPoints;
 }
 
 void Character::setLocation(Point location){
@@ -31,27 +30,27 @@ void Character::setLocation(Point location){
 }
 
 bool Character::isAlive(){
-    return hit > 0;
+    return hitPoints > 0;
 }
 
 double Character::distance(Character* other)const{
     return this->location.distance(other->getLocation());
 }
 
-void Character::hits(int num){
+void Character::hit(int num){
     if (num < 0 ){
         throw std::invalid_argument ("Hits must be positive");
     }
-    hit = hit-num;
+    hitPoints = hitPoints-num;
 }
 
 string Character::print() {
     stringstream ss;
     ss << "Name: " << name;
-    if (hit <= 0) {
+    if (hitPoints <= 0) {
         ss << " (Dead)";
     } else {
-        ss << ", Hit Points: " << hit;
+        ss << ", Hit Points: " << hitPoints;
     }
     ss << ", Location: " << location.print();
     return ss.str();
@@ -59,11 +58,11 @@ string Character::print() {
 
 
 
-bool Character::TeamMember(){
+bool Character::TeamMember(){ //istaken
     return Tmember; 
 }
 
-void Character::setTeamMember(){
+void Character::setTeamMember(){ //inteam
     Tmember = true;
 }
 
